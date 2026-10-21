@@ -119,7 +119,6 @@ int main() {
     EmergencyQueue eq;
     int choice;
 
-    // લૂપ ચાલશે જ્યાં સુધી યુઝર બહાર નીકળવાનું નક્કી ન કરે
     do {
         std::cout << "\n========== EMERGENCY ROOM SYSTEM ==========\n";
         std::cout << "1. Add New Patient\n";
@@ -137,18 +136,16 @@ int main() {
             std::cout << "Enter Patient ID: ";
             std::cin >> id;
             std::cout << "Enter Patient Name: ";
-            std::cin.ignore(); // બફર સાફ કરવા માટે
+            std::cin.ignore(); 
             std::getline(std::cin, name);
             
             std::cout << "Select Priority Level (1: Normal, 2: Medium, 3: Critical): ";
             std::cin >> pChoice;
 
-            // યુઝરની ચોઇસ મુજબ પ્રાયોરિટી સેટ કરો
             if (pChoice == 3) priority = CRITICAL;
             else if (pChoice == 2) priority = MEDIUM;
             else priority = NORMAL;
 
-            // પેશન્ટ ઉમેરો
             eq.addPatient(id, name, priority);
 
         } else if (choice == 2) {
